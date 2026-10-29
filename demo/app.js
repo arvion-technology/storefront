@@ -1,5 +1,5 @@
 /**
- * Bazaar Store — demo application.
+ * Bazaar Store, demo application.
  *
  * src/ owns pricing, stock, promos, the order state machine and revenue.
  * This file routes between the storefront and the back office and renders the
@@ -58,7 +58,7 @@ const fmt = A.fmt;
 const toast = A.toast;
 
 const STORAGE_KEY = "bazaar.store.v1";
-const DELIVERY_ESTIMATE = "2–4 working days inside Nepal";
+const DELIVERY_ESTIMATE = "2-4 working days inside Nepal";
 const CITIES = ["Kathmandu", "Lalitpur", "Bhaktapur", "Pokhara", "Dharan", "Other"];
 
 const ICONS = {
@@ -585,7 +585,7 @@ function productView(product) {
     el("span", {
       text:
         available === 0
-          ? "Sold out — check back soon"
+          ? "Sold out, check back soon"
           : available <= 5
             ? `Only ${available} left in stock`
             : "In stock, ready to ship",
@@ -666,7 +666,7 @@ function productView(product) {
           "div",
           { class: "delivery-note" },
           el("div", {}, el("strong", { text: "Delivery " }), "Rs 150 flat, free over Rs 2,500. ", DELIVERY_ESTIMATE, "."),
-          el("div", {}, el("strong", { text: "Payment " }), "Cash on delivery, eSewa or Khalti — the wallet adapters are mocked."),
+          el("div", {}, el("strong", { text: "Payment " }), "Cash on delivery, eSewa or Khalti, the wallet adapters are mocked."),
           el("div", {}, el("strong", { text: "Returns " }), "Unused items can come back within seven days; we pay the return courier.")
         ),
         el(
@@ -842,7 +842,7 @@ function renderOverlay() {
           el("span", { text: "Checkout" }),
           el("span", { html: ICONS.arrow })
         ),
-        el("div", { class: "cart-foot-note", text: "Mock checkout — cash on delivery, eSewa or Khalti." })
+        el("div", { class: "cart-foot-note", text: "Mock checkout, cash on delivery, eSewa or Khalti." })
       )
     );
   }
@@ -1315,7 +1315,7 @@ function orderRow(order) {
       "td",
       {},
       el("span", { class: "stock-num", text: String(itemCount) }),
-      el("div", { class: "inv-variant", text: first ? (order.items.length > 1 ? `${first.name} +${order.items.length - 1}` : first.name) : "—" })
+      el("div", { class: "inv-variant", text: first ? (order.items.length > 1 ? `${first.name} +${order.items.length - 1}` : first.name) : ", " })
     ),
     el("td", {}, el("span", { class: "stock-num", text: money(order.totals.total) })),
     el("td", {}, el("span", { class: "inv-product", text: payment.short }), el("div", { class: "inv-variant", text: order.payment.status })),
@@ -1615,7 +1615,7 @@ function adjustStock(key, delta) {
   if (!result.ok) {
     toast(
       result.reason === "reserved"
-        ? `Only ${result.maxDecrease} can be removed — the rest is reserved for open orders.`
+        ? `Only ${result.maxDecrease} can be removed, the rest is reserved for open orders.`
         : "That adjustment is not possible",
       "error",
       2800

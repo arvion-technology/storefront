@@ -40,7 +40,7 @@ function normalise(items) {
 
 /**
  * Reserve every line or none of them. A failed multi-line reserve leaves the
- * inventory untouched — partial reservations are how oversells happen.
+ * inventory untouched, partial reservations are how oversells happen.
  */
 export function reserve(inventory, items) {
   const lines = normalise(items);

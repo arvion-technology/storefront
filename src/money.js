@@ -16,7 +16,7 @@ export function percentOf(amount, percent) {
   return Math.round((Number(amount) * Number(percent)) / 100);
 }
 
-/** "Rs 1,250" — decimals only when the amount is not a whole rupee. */
+/** "Rs 1,250", decimals only when the amount is not a whole rupee. */
 export function formatNPR(paisa, options = {}) {
   const value = Number(paisa || 0);
   const whole = value % RUPEE === 0;

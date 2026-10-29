@@ -2,7 +2,7 @@
 <img src="docs/demo.gif" alt="Bazaar Store storefront" width="100%" />
 </div>
 
-<sub>Recorded from the live demo — <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
+<sub>Recorded from the live demo, <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
 
 # Bazaar Store
 
@@ -29,21 +29,21 @@ same values.
 
 ## What it does
 
-- **Storefront** — 12 products across six categories, search, category filters
+- **Storefront**: 12 products across six categories, search, category filters
   and sorting. Each product has two or three variants with their own price and
   stock, and the product page shows live availability.
-- **Bag drawer** — quantity rules, sale savings, promo codes, a free-delivery
+- **Bag drawer**: quantity rules, sale savings, promo codes, a free-delivery
   meter and a checkout that re-prices the cart whenever it changes.
-- **Checkout** — contact and delivery details, then cash on delivery, eSewa or
+- **Checkout**: contact and delivery details, then cash on delivery, eSewa or
   Khalti. The wallet adapters are local mocks: a short fake redirect returns a
   reference code and no money moves.
-- **Order confirmation** — order number, payment state, the timeline so far and
+- **Order confirmation**: order number, payment state, the timeline so far and
   the receipt, with a link into the back office.
-- **Back office orders** — revenue and average-order tiles, a 30-day revenue
+- **Back office orders**: revenue and average-order tiles, a 30-day revenue
   chart, low-stock alerts and an order table. Placed orders can be packed,
   shipped, delivered, cancelled or refunded; stock effects are part of the
   transition, not a follow-up job.
-- **Inventory** — on-hand and reserved units per variant, with adjustments for
+- **Inventory**: on-hand and reserved units per variant, with adjustments for
   one unit or five. On-hand cannot be cut below what open orders have reserved.
 - Local persistence for the cart, inventory and orders, plus a reset button that
   rebuilds the seeded shop.
@@ -159,7 +159,7 @@ The state machine is small and explicit:
 | packed | shipped, cancelled |
 | shipped | delivered, refunded |
 | delivered | refunded |
-| cancelled / refunded | — |
+| cancelled / refunded |: |
 
 Shipping commits the reservation (`onHand -= qty`), cancelling releases it,
 and refunding restocks it. Because the stock effect lives in `transitionOrder`,
